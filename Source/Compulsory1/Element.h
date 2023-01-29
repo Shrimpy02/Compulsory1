@@ -70,5 +70,5 @@ public:
 	void nineP();
 
 	void winCondition();
-	//void reset();
+	void reset();
 };

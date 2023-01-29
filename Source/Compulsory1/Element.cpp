@@ -100,7 +100,7 @@ void AElement::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAction("7", IE_Pressed, this, &AElement::sevenP);
 	PlayerInputComponent->BindAction("8", IE_Pressed, this, &AElement::eightP);
 	PlayerInputComponent->BindAction("9", IE_Pressed, this, &AElement::nineP);
-	//PlayerInputComponent->BindAction("tab", IE_Pressed, this, &AElement::reset);
+	PlayerInputComponent->BindAction("tab", IE_Pressed, this, &AElement::reset);
 }
 
 void AElement::oneP()
@@ -318,21 +318,21 @@ void AElement::winCondition()
 		GEngine->AddOnScreenDebugMessage(1, 1.f, FColor::Blue, "Blue Wins!");
 }
 
-//void AElement::reset()
-//{
-//	// Resets materials
-//	for (int i = 0; i < numberOfspheres; i++)
-//		Sphere[i]->SetMaterial(0, White);
-//
-//	// Resets constents
-//	for (int i = 0; i < numberOfspheres; i++) {
-//		isRed[i] = 0;
-//		isBlue[i] = 0;
-//		buttonPressed[i] = 0;
-//	}
-//	turn = 0;
-//
-//	// Notifies of game start
-//	GEngine->AddOnScreenDebugMessage(1, 1.f, FColor::Black, "Game Re-started");
-//
-//}
+void AElement::reset()
+{
+	// Resets materials
+	for (int i = 0; i < numberOfspheres; i++)
+		Sphere[i]->SetMaterial(0, White);
+	
+	// Resets constents
+	for (int i = 0; i < numberOfspheres; i++) {
+		isRed[i] = 0;
+		isBlue[i] = 0;
+		buttonPressed[i] = 0;
+	}
+	turn = 0;
+	
+	// Notifies of game start
+	GEngine->AddOnScreenDebugMessage(1, 1.f, FColor::Black, "Game Re-started");
+	
+}
